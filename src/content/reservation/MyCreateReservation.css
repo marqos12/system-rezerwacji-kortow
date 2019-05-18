@@ -1,0 +1,28 @@
+.card{
+    width:600px;
+    margin:0 auto;
+}
+.button.is-info.is-outlined{
+    
+    margin-right: 50px;
+}
+
+.columns .column{
+    text-align: right
+}
+
+.columns .MyColR{
+    text-align: left !important
+}
+.wrong{
+    border-color: red;
+    background-color: #fac9c9;
+}
+
+.warning{
+    color: red;
+}
+
+.MyColumn{
+    display: flex;
+}

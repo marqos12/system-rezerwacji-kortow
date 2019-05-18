@@ -1,0 +1,23 @@
+.navbar-item img{
+    max-height: none;
+}
+
+.navbar-link, a.navbar-item {
+    
+    font-size: 1.4em;
+}
+
+.navbar{
+    border-bottom: 1px solid black;
+    margin-bottom: 50px;
+}
+
+.active{
+    background-color: #eee;
+}
+
+@media screen and (min-width: 1088px){
+    .navbar-end{
+        margin-right: 50px;
+    }
+}
