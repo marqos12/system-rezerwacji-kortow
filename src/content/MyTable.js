@@ -42,7 +42,7 @@ class MyTableComponent extends React.Component {
 
   createTD=(id,hour)=>{
     if(this.findReservation(id,hour))return <h1  className="title is-4">{this.findReservation(id,hour)}</h1>
-    else return <a onClick={x=>this.reserv(id, hour)}>{id+" "+hour}</a>
+    else return <a onClick={x=>this.reserv(id, hour)}>{id}<br/>{hour}</a>
   }
 
   render() {

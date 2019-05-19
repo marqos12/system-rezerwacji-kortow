@@ -16,7 +16,9 @@ class MyCreateReservation extends React.Component {
         
         this.initialized=true;
     }
-
+    componentDidMount(){
+        this.nameInput.focus(); 
+     }
     onNameChange = (e) => {
         this.name = e.target.value;
         this.wrong = "";
@@ -82,7 +84,7 @@ class MyCreateReservation extends React.Component {
                                 <h3 className="title is-3">Imie:</h3>
                             </div>
                             <div className="column MyColR">
-                                <input className={'input '+this.wrong} type="text" key="name"onChange={this.onNameChange} placeholder="Podaj Imie" ></input>
+                                <input ref={(input) => { this.nameInput = input; }}  className={'input '+this.wrong} type="text" key="name"onChange={this.onNameChange} placeholder="Podaj Imie" ></input>
                             </div>
                         </div>
                         

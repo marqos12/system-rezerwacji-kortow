@@ -49,19 +49,19 @@ class MyStatisticComponent extends React.Component {
         data: [{
           type: "pie",
           startAngle: -90,
-          toolTipContent: "<b>{label}</b>: {y}",
+          toolTipContent: "<b>{label}</b>: {y}%",
           showInLegend: "true",
           legendText: "{label}",
           indexLabelFontSize: 16,
-          indexLabel: "{label} - {y}",
+          indexLabel: "{label} - {y}%",
           dataPoints: [
-            { y: this.filterStatistic(1), label: "Kort 1" },
-            { y: this.filterStatistic(2), label: "Kort 2" },
-            { y: this.filterStatistic(3), label: "Kort 3" },
-            { y: this.filterStatistic(4), label: "Kort 4" },
-            { y: this.filterStatistic(5), label: "Kort 5" },
-            { y: this.filterStatistic(6), label: "Kort 6" },
-            { y: this.all - this.used, label: "Wolne" }
+            { y: Math.round(100*this.filterStatistic(1)/this.all), label: "Kort 1" },
+            { y: Math.round(100*this.filterStatistic(2)/this.all), label: "Kort 2" },
+            { y: Math.round(100*this.filterStatistic(3)/this.all), label: "Kort 3" },
+            { y: Math.round(100*this.filterStatistic(4)/this.all), label: "Kort 4" },
+            { y: Math.round(100*this.filterStatistic(5)/this.all), label: "Kort 5" },
+            { y: Math.round(100*this.filterStatistic(6)/this.all), label: "Kort 6" },
+            { y: Math.round(100*(this.all - this.used)/this.all), label: "Wolne" }
           ]
         }]
       }
@@ -76,14 +76,14 @@ class MyStatisticComponent extends React.Component {
           data: [{
             type: "pie",
             startAngle: -90,
-            toolTipContent: "<b>{label}</b>: {y}",
+            toolTipContent: "<b>{label}</b>: {y}%",
             showInLegend: "true",
             legendText: "{label}",
             indexLabelFontSize: 16,
-            indexLabel: "{label} - {y}",
+            indexLabel: "{label} - {y}%",
             dataPoints: [
-              { y: this.filterStatistic(i+1), label: "Zajęte" },
-              { y: (21 - 6) - this.filterStatistic(i+1), label: "Wolne" }
+              { y: Math.round(100*this.filterStatistic(i+1)/(21 - 6)), label: "Zajęte" },
+              { y: Math.round(100*((21 - 6) - this.filterStatistic(i+1))/(21 - 6)), label: "Wolne" }
             ]
           }]
         }
