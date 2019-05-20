@@ -2,9 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {
-  
   Route,
-
   HashRouter
 } from 'react-router-dom';
 
@@ -22,25 +20,15 @@ class App extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    /*
-    fetch('/api/hello')
-      .then(response => response.json())
-      .then((data) => {
-        this.setState({ message: data.message });
-      });
-      */
-  }
-
   render() {
     return (
       <HashRouter>
         <div className="App">
           <MyHeader />
           <Route exact path="/" component={MyTable} />
-          <Route  path="/statistics" component={MyStatistic} />
-          <Route  path="/reservation/:id/:hour" component={MyCreateReservation} />
-          <Route  path="/confirm/:id/:hour/:name" component={MyConfirmReservation} />
+          <Route path="/statistics" component={MyStatistic} />
+          <Route path="/reservation/:id/:hour" component={MyCreateReservation} />
+          <Route path="/confirm/:id/:hour/:name" component={MyConfirmReservation} />
         </div>
       </HashRouter>
     );

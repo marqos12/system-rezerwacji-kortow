@@ -7,43 +7,44 @@ class MyCreateReservation extends React.Component {
     id;
     hour;
     name;
-    initialized=false;
+    initialized = false;
     wrong = "";
-    warning="";
+    warning = "";
     componentWillMount() {
         this.id = this.props.match.params.id;
         this.hour = this.props.match.params.hour
-        
-        this.initialized=true;
+
+        this.initialized = true;
     }
-    componentDidMount(){
-        this.nameInput.focus(); 
-     }
+    componentDidMount() {
+        this.nameInput.focus();
+    }
     onNameChange = (e) => {
         this.name = e.target.value;
         this.wrong = "";
         this.forceUpdate();
-         
+
     }
 
-    onAccept=()=>{
-        if(this.name!=""&&this.name!=null){
-            fetch('/api/reservation',{
-                method:"POST", 
+    onAccept = () => {
+        if (this.name != "" && this.name != null) {
+            fetch('/api/reservation', {
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body:JSON.stringify({id:this.id, hour:this.hour,name:this.name})})
-            .then(response => response.json())
-            .then((data) =>{
-                this.props.history.push('/confirm/'+this.id+"/"+this.hour+"/"+this.name);
+                body: JSON.stringify({ id: this.id, hour: this.hour, name: this.name })
             })
-            .catch(()=>{
-                
-                this.warning="Termin zarezerwowany!"
-                this.forceUpdate();
-            });
-            
+                .then(response => response.json())
+                .then((data) => {
+                    this.props.history.push('/confirm/' + this.id + "/" + this.hour + "/" + this.name);
+                })
+                .catch(() => {
+
+                    this.warning = "Termin zarezerwowany!"
+                    this.forceUpdate();
+                });
+
         }
         else {
             this.wrong = "wrong";
@@ -58,7 +59,7 @@ class MyCreateReservation extends React.Component {
                 <div className="card">
                     <div className="card-content">
                         <h1 className="title is-1">Zarezerwuj kort</h1>
-                        
+
                         <div className="columns MyColumn">
                             <div className="column">
                                 <h3 className="title is-3">Kort:</h3>
@@ -84,10 +85,10 @@ class MyCreateReservation extends React.Component {
                                 <h3 className="title is-3">Imie:</h3>
                             </div>
                             <div className="column MyColR">
-                                <input ref={(input) => { this.nameInput = input; }}  className={'input '+this.wrong} type="text" key="name"onChange={this.onNameChange} placeholder="Podaj Imie" ></input>
+                                <input ref={(input) => { this.nameInput = input; }} className={'input ' + this.wrong} type="text" key="name" onChange={this.onNameChange} placeholder="Podaj Imie" ></input>
                             </div>
                         </div>
-                        
+
 
                     </div>
                     <footer className="card-footer">

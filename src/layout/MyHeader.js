@@ -1,7 +1,7 @@
 import React from 'react';
 import './MyHeader.css';
 
-import {NavLink}from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class MyHeaderComponent extends React.Component {
 
@@ -14,7 +14,7 @@ class MyHeaderComponent extends React.Component {
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <a className="navbar-item">
-              <img src="/assets/rakieta.png"  width="75" />
+              <img src="/assets/rakieta.png" width="75" />
             </a>
 
             <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -25,10 +25,10 @@ class MyHeaderComponent extends React.Component {
           </div>
 
           <div id="navbarBasicExample" className="navbar-menu">
-            
+
             <div className="navbar-end">
-            <NavLink exact to="/" className="navbar-item" >
-              Rezerwacje
+              <NavLink exact to="/" className="navbar-item" >
+                Rezerwacje
               </NavLink>
 
               <NavLink to="/statistics" className="navbar-item" >

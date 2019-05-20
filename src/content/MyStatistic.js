@@ -30,10 +30,10 @@ class MyStatisticComponent extends React.Component {
     else return 0;
   }
 
-  peopleStatistics = ()=>{
-    let tab=[];
-    this.statistics.people.map(x=>{
-      tab.push({y:x.value,label:x.name})
+  peopleStatistics = () => {
+    let tab = [];
+    this.statistics.people.map(x => {
+      tab.push({ y: x.value, label: x.name })
     })
     return tab
   }
@@ -55,13 +55,13 @@ class MyStatisticComponent extends React.Component {
           indexLabelFontSize: 16,
           indexLabel: "{label} - {y}%",
           dataPoints: [
-            { y: Math.round(100*this.filterStatistic(1)/this.all), label: "Kort 1" },
-            { y: Math.round(100*this.filterStatistic(2)/this.all), label: "Kort 2" },
-            { y: Math.round(100*this.filterStatistic(3)/this.all), label: "Kort 3" },
-            { y: Math.round(100*this.filterStatistic(4)/this.all), label: "Kort 4" },
-            { y: Math.round(100*this.filterStatistic(5)/this.all), label: "Kort 5" },
-            { y: Math.round(100*this.filterStatistic(6)/this.all), label: "Kort 6" },
-            { y: Math.round(100*(this.all - this.used)/this.all), label: "Wolne" }
+            { y: Math.round(100 * this.filterStatistic(1) / this.all), label: "Kort 1" },
+            { y: Math.round(100 * this.filterStatistic(2) / this.all), label: "Kort 2" },
+            { y: Math.round(100 * this.filterStatistic(3) / this.all), label: "Kort 3" },
+            { y: Math.round(100 * this.filterStatistic(4) / this.all), label: "Kort 4" },
+            { y: Math.round(100 * this.filterStatistic(5) / this.all), label: "Kort 5" },
+            { y: Math.round(100 * this.filterStatistic(6) / this.all), label: "Kort 6" },
+            { y: Math.round(100 * (this.all - this.used) / this.all), label: "Wolne" }
           ]
         }]
       }
@@ -71,7 +71,7 @@ class MyStatisticComponent extends React.Component {
           exportEnabled: true,
           animationEnabled: true,
           title: {
-            text: "Zajętość Kortu " + (i*1+1)
+            text: "Zajętość Kortu " + (i * 1 + 1)
           },
           data: [{
             type: "pie",
@@ -82,8 +82,8 @@ class MyStatisticComponent extends React.Component {
             indexLabelFontSize: 16,
             indexLabel: "{label} - {y}%",
             dataPoints: [
-              { y: Math.round(100*this.filterStatistic(i+1)/(21 - 6)), label: "Zajęte" },
-              { y: Math.round(100*((21 - 6) - this.filterStatistic(i+1))/(21 - 6)), label: "Wolne" }
+              { y: Math.round(100 * this.filterStatistic(i + 1) / (21 - 6)), label: "Zajęte" },
+              { y: Math.round(100 * ((21 - 6) - this.filterStatistic(i + 1)) / (21 - 6)), label: "Wolne" }
             ]
           }]
         }
@@ -93,7 +93,7 @@ class MyStatisticComponent extends React.Component {
       const optionsP = {
         animationEnabled: true,
         theme: "light2",
-        title:{
+        title: {
           text: "Ilość rezerwacji na osobę"
         },
         axisX: {
@@ -107,7 +107,7 @@ class MyStatisticComponent extends React.Component {
         data: [{
           type: "bar",
           dataPoints: this.peopleStatistics()
-          
+
         }]
       }
 
@@ -117,30 +117,30 @@ class MyStatisticComponent extends React.Component {
             <CanvasJSChart options={options} />
             <div className="columns">
               <div className="column">
-            <CanvasJSChart options={options2[0]} />
-    </div>
+                <CanvasJSChart options={options2[0]} />
+              </div>
               <div className="column">
-            <CanvasJSChart options={options2[1]} />
-    </div>
+                <CanvasJSChart options={options2[1]} />
+              </div>
             </div>
             <div className="columns">
               <div className="column">
-            <CanvasJSChart options={options2[2]} />
-    </div>
+                <CanvasJSChart options={options2[2]} />
+              </div>
               <div className="column">
-            <CanvasJSChart options={options2[3]} />
-    </div>
+                <CanvasJSChart options={options2[3]} />
+              </div>
             </div>
             <div className="columns">
               <div className="column">
-            <CanvasJSChart options={options2[4]} />
-    </div>
+                <CanvasJSChart options={options2[4]} />
+              </div>
               <div className="column">
-            <CanvasJSChart options={options2[5]} />
-    </div>
+                <CanvasJSChart options={options2[5]} />
+              </div>
             </div>
             <div className="columns">
-            <CanvasJSChart options={optionsP} />
+              <CanvasJSChart options={optionsP} />
 
             </div>
           </div>

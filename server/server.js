@@ -1,7 +1,7 @@
 const express = require('express'),
-        bodyParser = require('body-parser'),
-        cookieParser = require('cookie-parser'),
-        router = require('./router');
+  bodyParser = require('body-parser'),
+  cookieParser = require('cookie-parser'),
+  router = require('./router');
 
 const app = express();
 
@@ -13,6 +13,6 @@ app.use(cookieParser());
 router.initRoutes(app);
 
 const server = app.listen(4000, () => {
-  
+
 });
 
